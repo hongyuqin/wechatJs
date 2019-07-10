@@ -1,10 +1,74 @@
 /**app.wxss**/
+
 .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf9fe;
+}
+.menu-item-api-item-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
+}
+.menu-item-api-item-text-zhname {
+  font-size: 30rpx;
+}
+.menu-item-api-item-text-enname {
+  font-size: 26rpx;
+  color: #6b6b6b;
+}
+.menu-item-api-item-arrow {
+  width: 32rpx;
+  height: 32rpx;
+}
+.page-body {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.page__title{
+  display: block;
+  font-size: 20px;
+}
+.page__desc{
+  margin-top: 5px;
+  font-size: 14px;
+  color: #888888;
+}
+.section_gap{
+  padding: 0 15px;
+}
+.section{
+  margin-bottom: 40px;
+}
+
+checkbox, radio{
+  margin-right: 5px;
+}
+page {
+  background-color: #fbf9fe;
+  height: 100%;
+}
+.radio {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+

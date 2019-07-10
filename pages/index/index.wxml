@@ -1,13 +1,30 @@
 <!--index.wxml-->
+
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    <!--
+      <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+      <view class="usermotto">
+        <text class="user-motto">{{motto}}</text>
+      </view>
+    </view>
+    -->
+
+
+    <view class="page-body">
+        <navigator url="{{APIItem.url}}">
+            <view class="menu-item-api-item" style="{{index === 0 ? 'border-top:none;' : ''}}">
+                <view class="menu-item-api-item-text">
+                    <text class="menu-item-api-item-text-zhname">{{APIItem.zhName}}</text>
+                    <text class="menu-item-api-item-text-enname">{{APIItem.enName}}</text>
+                </view>
+                <image class="menu-item-api-item-arrow" src="/image/arrowright.png"></image>
+            </view>
+        </navigator>
+    </view>
 </view>

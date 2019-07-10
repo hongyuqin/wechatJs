@@ -19,3 +19,13 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.radio {
+    display: block;
+    margin-bottom: 10px;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #fbf9fe;
+}
