@@ -7,17 +7,31 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
+    openId:"",
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     APIItem:{
       zhName: '进入答题',
       enName: 'enter question',
       url: '../logs/logs'
-    },
-    hasUserInfo: false
+    }
   },
   onLoad: function () {
     var that = this
-
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://25c894c0.ngrok.io/getOpenId',
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
     if (app.globalData.hasLogin === false) {
       wx.login({
         success: _getUserInfo

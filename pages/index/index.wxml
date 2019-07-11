@@ -7,11 +7,7 @@
             <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
             <text class="userinfo-nickname">{{userInfo.nickName}}</text>
         </block>
-<!--
-        <view class="page-body-buttons">
-            <button class="page-body-button" type="primary" bindtap="getUserInfo">获取用户信息</button>
-        </view>
-        -->
+
     </view>
 
     <view class="page__bd">
@@ -29,7 +25,7 @@
         -->
             <!-- 进入计划 -->
             <navigator url="plan?title=navigate" hover-class="navigator-hover">
-                <button type="default">开始答题</button>
+                <button class="page-body-button" type="default">开始答题</button>
             </navigator>
         </view>
     </view>
