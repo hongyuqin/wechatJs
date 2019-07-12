@@ -24,9 +24,13 @@
             </navigator>
         -->
             <!-- 进入计划 -->
-            <navigator url="plan?title=navigate" hover-class="navigator-hover">
-                <button class="page-body-button" type="default">开始答题</button>
+            <navigator url="plan?title={{openId}}" hover-class="navigator-hover">
+                <button class="page-body-button" type="default">我的计划</button>
             </navigator>
+            <!-- 开始答题
+            <navigator url="plan?title={{openId}}" hover-class="navigator-hover">
+                <button class="page-body-button" type="default">我的计划</button>
+            </navigator>  -->
         </view>
     </view>
 </view>
