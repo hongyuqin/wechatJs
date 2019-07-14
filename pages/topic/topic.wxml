@@ -1,0 +1,27 @@
+<view class="page">
+    <view class="page__hd">
+        <text class="page__desc">{{topic.topic_name}}</text>
+        <view class="section section_gap">
+            <radio-group class="radio-group" bindchange="radioChange">
+                <label class="radio" wx:for-items="{{items}}">
+                    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}.{{item.value}}
+                </label>
+            </radio-group>
+        </view>
+        <block wx:if="{{hasSubmit === true}}">
+            <text class="page__desc">是否正确:{{result.right}}</text>
+            <text class="page__desc">正确答案为：{{result.answer}}</text>
+            <text class="page__desc">题目解析：{{result.topic_analysis}}</text>
+            <text class="page__desc">错误数量：{{result.wrong_num}}</text>
+            <text class="page__desc">正确数量：{{result.right_num}}</text>
+        </block>
+    </view>
+    <button class="page-body-button" type="default" bindtap="submit">提交答案</button>
+
+    <navigator url="./topic" hover-class="navigator-hover">
+        <button class="page-body-button" type="default">下一题</button>
+    </navigator>
+    <navigator url="../index/index" hover-class="navigator-hover">
+        <button class="page-body-button" type="default">回到首页</button>
+    </navigator>
+</view>

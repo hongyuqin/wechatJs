@@ -1,4 +1,4 @@
-// pages/index/plan.js
+// pages/index/topic.js
 const app = getApp()
 Page({
 
@@ -18,21 +18,18 @@ Page({
         var that = this
         //发起网络请求
         wx.request({
-            url: 'http://0a50bbee.ngrok.io/getPlan',
+            url: app.serverUrl+'getPlan',
             data: {
                 accessToken: app.globalData.accessToken
             },
             success(resp) {
-                console.log(resp)
-                if (resp.data["data"]["code"] == 200) {
-                    var plan = resp.data["data"]["data"]
-                    console.log("region is :" + plan["region"])
+                if (resp.data.code == 200) {
+                    var plan = resp.data.data
                     that.setData({
-                        region: plan["region"],
-                        examType: plan["exam_type"],
-                        dailyNeedNum: plan["daily_need_num"]
+                        region: plan.region,
+                        examType: plan.exam_type,
+                        dailyNeedNum: plan.daily_need_num
                     })
-                    that.update()
                 }
             }
         })

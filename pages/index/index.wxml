@@ -2,35 +2,49 @@
 
 <view class="page">
     <view class="page-body-info">
-        <view class="page-body-title">用户信息</view>
-        <block wx:if="{{hasUserInfo === true}}">
-            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-        </block>
-
+        <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+        <open-data type="userAvatarUrl"></open-data>
+        <open-data type="userNickName"></open-data>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
 
+     <!--
+     "rank": 0,
+             "total": 1,
+             "left_days": 0,
+             "today_practice_num": 0,
+             "daily_need_num": 100,
+             "has_learn_num": 0,
+             "wrong_num": 0,
+             "total_topic_num":1000
+     -->
     <view class="page__bd">
         <view class="btn-area">
-            <!--
-            <navigator url="{{APIItem.url}}">
-                <view class="menu-item-api-item" style="{{index === 0 ? 'border-top:none;' : ''}}">
-                    <view class="menu-item-api-item-text">
-                        <text class="menu-item-api-item-text-zhname">{{APIItem.zhName}}</text>
-                        <text class="menu-item-api-item-text-enname">{{APIItem.enName}}</text>
-                    </view>
-                    <image class="menu-item-api-item-arrow" src="/image/arrowright.png"></image>
-                </view>
-            </navigator>
-        -->
+            <text class="page__desc">排名为:{{home.rank}}/{{home.total}}</text>
+            <text class="page__desc">大约剩余：{{home.left_days}}</text>
+            <text class="page__desc">今日刷题：{{home.daily_need_num}}</text>
+            <text class="page__desc">已学完：{{home.daily_need_num}}</text>
+            <text class="page__desc">总题目：{{home.total_topic_num}}</text>
+            <text class="page__desc">今日已学：{{home.today_practice_num}}</text>
+            <text class="page__desc">今日需学：{{home.daily_need_num}}</text>
+            <text class="page__desc">今日需复习：{{home.wrong_num}}</text>
+
             <!-- 进入计划 -->
-            <navigator url="plan?title={{openId}}" hover-class="navigator-hover">
+            <navigator url="../plan/plan" hover-class="navigator-hover">
                 <button class="page-body-button" type="default">我的计划</button>
             </navigator>
-            <!-- 开始答题
-            <navigator url="plan?title={{openId}}" hover-class="navigator-hover">
-                <button class="page-body-button" type="default">我的计划</button>
-            </navigator>  -->
+            <!-- 开始刷题 -->
+            <navigator url="../topic/topic" hover-class="navigator-hover">
+                <button class="page-body-button" type="default">开始刷题吧</button>
+            </navigator>
+             <!-- 错题记录 -->
+            <navigator url="../wrongTopic/wrongTopic" hover-class="navigator-hover">
+                <button class="page-body-button" type="default">错题记录</button>
+            </navigator>
+            <!-- 收藏题目 -->
+            <navigator url="../collect/collect" hover-class="navigator-hover">
+                <button class="page-body-button" type="default">收藏题目</button>
+            </navigator>
         </view>
     </view>
 </view>

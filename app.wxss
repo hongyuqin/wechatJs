@@ -59,6 +59,7 @@ page {
   font-size: 20px;
 }
 .page__desc{
+  display: block;
   margin-top: 5px;
   font-size: 14px;
   color: #888888;
@@ -84,6 +85,12 @@ page {
 .userinfo-nickname {
   margin-top: 20rpx;
   font-size: 38rpx;
+}
+.section{
+    margin-bottom: 40px;
+}
+.section_gap{
+    padding: 0 15px;
 }
 
 

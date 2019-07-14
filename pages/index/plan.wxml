@@ -1,7 +1,0 @@
-<view class="page">
-    <view class="page__hd">
-        <text class="page__desc">{{region}}</text>
-        <text class="page__desc">{{examType}}</text>
-        <text class="page__desc">{{dailyNeedNum}}</text>
-    </view>
-</view>

@@ -1,0 +1,7 @@
+<view class="page">
+    <view class="page__hd">
+        <text class="page__desc">地区为:{{region}}</text>
+        <text class="page__desc">考试类型为：{{examType}}</text>
+        <text class="page__desc">每日需刷题数为：{{dailyNeedNum}}</text>
+    </view>
+</view>
