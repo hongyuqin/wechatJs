@@ -1,4 +1,4 @@
-// pages/index/topic.js
+// pages/index/wrongTopic.js
 const app = getApp()
 Page({
 
