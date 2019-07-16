@@ -1,5 +1,6 @@
-// pages/index/wrongTopic.js
 const app = getApp()
+// pages/index/wrongTopic.js
+var getTopic = require('./get-topic.js')
 Page({
 
     /**
@@ -14,7 +15,7 @@ Page({
             {name: 'C', value: ''},
             {name: 'D', value: ''},
         ],
-        answer: '',
+        answer: 'A',
         hasSubmit: false,
         result: {},
         operate: '',
@@ -31,7 +32,7 @@ Page({
         //发起网络请求
         console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
         wx.request({
-            url: 'http://fe69128a.ngrok.io/nextTopic',
+            url: app.globalData.serverUrl+'/nextTopic',
             data: {
                 accessToken: app.globalData.accessToken,
                 operate: this.data.operate,
@@ -59,7 +60,7 @@ Page({
         var that = this
         var changed = {}
         wx.request({
-            url: 'http://fe69128a.ngrok.io/answer',
+            url: app.globalData.serverUrl+'/answer',
             data: {
                 accessToken: app.globalData.accessToken,
                 topic_id: this.data.topicId,
@@ -84,7 +85,7 @@ Page({
         this.setData({operate: 'last',isBegin:false})
         console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
         wx.request({
-            url: 'http://fe69128a.ngrok.io/nextTopic',
+            url: app.globalData.serverUrl+'/nextTopic',
             data: {
                 accessToken: app.globalData.accessToken,
                 operate: this.data.operate,
@@ -115,7 +116,7 @@ Page({
         this.setData({operate: 'next',isBegin:false})
         console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
         wx.request({
-            url: 'http://fe69128a.ngrok.io/nextTopic',
+            url: app.globalData.serverUrl+'/nextTopic',
             data: {
                 accessToken: app.globalData.accessToken,
                 operate: this.data.operate,
