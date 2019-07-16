@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55d59170-06df-4dea-9368-ad86e3426c04" name="Default Changelist" comment="回答">
+    <list default="true" id="55d59170-06df-4dea-9368-ad86e3426c04" name="Default Changelist" comment="上一题 下一题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/plan/plan.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/plan/plan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/topic/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/topic/topic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/topic/topic.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/pages/topic/topic.wxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="topic.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="topic.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/topic/topic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+            <state relative-caret-position="666">
+              <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -37,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -81,6 +81,9 @@
       <find>this.set</find>
       <find>a93e3501</find>
     </findStrings>
+    <replaceStrings>
+      <replace>fe69128a</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,8 +111,8 @@
         <option value="$PROJECT_DIR$/pages/collect/collect.wxml" />
         <option value="$PROJECT_DIR$/pages/wrongTopic/wrongTopic.wxml" />
         <option value="$PROJECT_DIR$/pages/topic/topic.wxml" />
-        <option value="$PROJECT_DIR$/pages/topic/topic.js" />
         <option value="$PROJECT_DIR$/app.json" />
+        <option value="$PROJECT_DIR$/pages/topic/topic.js" />
       </list>
     </option>
   </component>
@@ -218,7 +221,7 @@
       <updated>1562130732616</updated>
       <workItem from="1562130733744" duration="11234000" />
       <workItem from="1562747046598" duration="8095000" />
-      <workItem from="1562942957775" duration="12408000" />
+      <workItem from="1562942957775" duration="13387000" />
     </task>
     <task id="LOCAL-00001" summary="登陆">
       <created>1562673076537</created>
@@ -248,11 +251,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563075246970</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="上一题 下一题">
+      <created>1563203052714</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1563203052714</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31737000" />
+    <option name="totallyTimeSpent" value="32716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -298,7 +308,8 @@
     <MESSAGE value="跳转 radio选择" />
     <MESSAGE value="首页 10%" />
     <MESSAGE value="回答" />
-    <option name="LAST_COMMIT_MESSAGE" value="回答" />
+    <MESSAGE value="上一题 下一题" />
+    <option name="LAST_COMMIT_MESSAGE" value="上一题 下一题" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pages/index/index.wxml">
@@ -482,6 +493,13 @@
     <entry file="file://$PROJECT_DIR$/pages/topic/topic.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/topic/topic.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -491,15 +509,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/topic/topic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="666">
+          <caret line="87" column="21" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
         </state>
       </provider>
     </entry>

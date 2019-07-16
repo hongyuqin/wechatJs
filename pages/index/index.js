@@ -18,7 +18,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://a93e3501.ngrok.io/getAccessToken',
+            url: 'http://fe69128a.ngrok.io/getAccessToken',
             data: {
               code: res.code
             },
@@ -51,7 +51,7 @@ Page({
     })
     function _getHome() {
       wx.request({
-          url: 'http://a93e3501.ngrok.io/home',
+          url: 'http://fe69128a.ngrok.io/home',
           data: {
               accessToken: app.globalData.accessToken
           },

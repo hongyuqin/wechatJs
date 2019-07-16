@@ -18,7 +18,8 @@ Page({
         hasSubmit: false,
         result: {},
         operate: '',
-        index: 0
+        index: 0,
+        isBegin:true
     },
 
     /**
@@ -28,12 +29,14 @@ Page({
         var that = this
         var changed = {}
         //发起网络请求
+        console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
         wx.request({
-            url: 'http://a93e3501.ngrok.io/nextTopic',
+            url: 'http://fe69128a.ngrok.io/nextTopic',
             data: {
                 accessToken: app.globalData.accessToken,
                 operate: this.data.operate,
-                index: this.data.index
+                current_index: this.data.index,
+                is_begin:this.data.isBegin
             },
             success(resp) {
                 if (resp.data.code == 200) {
@@ -56,11 +59,11 @@ Page({
         var that = this
         var changed = {}
         wx.request({
-            url: 'http://a93e3501.ngrok.io/answer',
+            url: 'http://fe69128a.ngrok.io/answer',
             data: {
                 accessToken: app.globalData.accessToken,
                 topic_id: this.data.topicId,
-                my_answer: this.data.answer
+                my_answer: this.data.answer,
             },
             success(resp) {
                 console.log("submit resp :" + resp)
@@ -75,10 +78,14 @@ Page({
         })
     },
     selectLast: function () {
-        this.setData({operate: 'last'})
+        console.log("selectLast")
+        this.setData({operate: 'last',isBegin:false})
+        this.update()
     },
     selectNext: function () {
-        this.setData({operate: 'next'})
+        console.log("selectNext")
+        this.setData({operate: 'next',isBegin:false})
+        this.update()
     },
     radioChange: function (e) {
         console.log('radio发生change事件，携带value值为：', e.detail.value)
