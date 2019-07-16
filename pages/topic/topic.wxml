@@ -18,12 +18,12 @@
     </view>
     <button class="page-body-button" type="default" bindtap="submit">提交答案</button>
 
-    <navigator url="./topic?operate=last" hover-class="navigator-hover">
-        <button class="page-body-button" type="default" bindtap="selectLast">上一题</button>
-    </navigator>
-    <navigator url="./topic" hover-class="navigator-hover">
-        <button class="page-body-button" type="default" bindtap="selectNext">下一题</button>
-    </navigator>
+
+    <button class="page-body-button" type="default" bindtap="selectLast">上一题</button>
+
+
+    <button class="page-body-button" type="default" bindtap="selectNext">下一题</button>
+
     <navigator url="../index/index" hover-class="navigator-hover">
         <button class="page-body-button" type="default">回到首页</button>
     </navigator>

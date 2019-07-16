@@ -79,13 +79,65 @@ Page({
     },
     selectLast: function () {
         console.log("selectLast")
+        var that = this
+        var changed = {}
         this.setData({operate: 'last',isBegin:false})
-        this.update()
+        console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
+        wx.request({
+            url: 'http://fe69128a.ngrok.io/nextTopic',
+            data: {
+                accessToken: app.globalData.accessToken,
+                operate: this.data.operate,
+                current_index: this.data.index,
+                is_begin:this.data.isBegin
+            },
+            success(resp) {
+                if (resp.data.code == 200) {
+                    var topic = resp.data.data
+                    changed['topicId'] = topic.topic_id
+                    changed['items[0].value'] = topic.option_a
+                    changed['items[1].value'] = topic.option_b
+                    changed['items[2].value'] = topic.option_c
+                    changed['items[3].value'] = topic.option_d
+                    that.setData({
+                        topic: topic,
+                        index: topic.index
+                    })
+                    that.setData(changed)
+                }
+            }
+        })
     },
     selectNext: function () {
         console.log("selectNext")
+        var that = this
+        var changed = {}
         this.setData({operate: 'next',isBegin:false})
-        this.update()
+        console.log("currentIndex :"+this.data.index+" is_begin"+this.data.isBegin+" operate "+this.data.operate)
+        wx.request({
+            url: 'http://fe69128a.ngrok.io/nextTopic',
+            data: {
+                accessToken: app.globalData.accessToken,
+                operate: this.data.operate,
+                current_index: this.data.index,
+                is_begin:this.data.isBegin
+            },
+            success(resp) {
+                if (resp.data.code == 200) {
+                    var topic = resp.data.data
+                    changed['topicId'] = topic.topic_id
+                    changed['items[0].value'] = topic.option_a
+                    changed['items[1].value'] = topic.option_b
+                    changed['items[2].value'] = topic.option_c
+                    changed['items[3].value'] = topic.option_d
+                    that.setData({
+                        topic: topic,
+                        index: topic.index
+                    })
+                    that.setData(changed)
+                }
+            }
+        })
     },
     radioChange: function (e) {
         console.log('radio发生change事件，携带value值为：', e.detail.value)
