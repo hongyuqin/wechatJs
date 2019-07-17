@@ -17,6 +17,7 @@ Page({
         ],
         answer: 'A',
         hasSubmit: false,
+        checkAnalysis:false,
         result: {},
         operate: '',
         index: 0,
@@ -73,6 +74,25 @@ Page({
                     that.setData({
                         result: result,
                         hasSubmit: true
+                    })
+                }
+            }
+        })
+    },
+    getAnalysis: function () {
+        var that = this
+        wx.request({
+            url: app.globalData.serverUrl+'/getAnalysis',
+            data: {
+                accessToken: app.globalData.accessToken,
+                topic_id: this.data.topicId
+            },
+            success(resp) {
+                var result = resp.data.data
+                if (resp.data.code == 200) {
+                    that.setData({
+                        result: result,
+                        checkAnalysis:true
                     })
                 }
             }

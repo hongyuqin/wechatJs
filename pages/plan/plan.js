@@ -18,7 +18,8 @@ Page({
             {name: 'EXAM_TYPE_INSTITUTION', value: '事业单位考'}
         ],
         region:"",
-        examType:""
+        examType:"",
+        toastHidden:true
     },
 
     /**
@@ -61,10 +62,32 @@ Page({
         })
 
     },
-    bindPickerChange: function(e) {
-        console.log('picker发送选择改变，携带值为', e.detail.value)
-        this.setData({
-            index: e.detail.value
+    radioRegionChange: function (e) {
+        console.log('radio发生change事件，携带value值为：', e.detail.value)
+        this.setData({region: e.detail.value})
+    },
+    radioExamTypeChange: function (e) {
+        console.log('radio发生change事件，携带value值为：', e.detail.value)
+        this.setData({examType: e.detail.value})
+    },
+    submitPlan: function () {
+        var that = this
+        var changed = {}
+        wx.request({
+            url: app.globalData.serverUrl+'/plan',
+            data: {
+                accessToken: app.globalData.accessToken,
+                region: this.data.region,
+                exam_type: this.data.examType,
+            },
+            success(resp) {
+                console.log("submit resp :" + resp)
+                var result = resp.data.data
+                if (resp.data.code == 200) {
+                    console.log("save plan success")
+                    that.setData({toastHidden:false})
+                }
+            }
         })
     }
 })

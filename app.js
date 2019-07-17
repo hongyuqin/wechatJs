@@ -9,6 +9,6 @@ App({
     globalData: {
         accessToken:"",
         hasLogin: false,
-        serverUrl:"http://651cb4c5.ngrok.io/"
+        serverUrl:"http://20ce2b79.ngrok.io/"
     }
 })

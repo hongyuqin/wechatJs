@@ -15,6 +15,12 @@
             <text class="page__desc">错误数量：{{result.wrong_num}}</text>
             <text class="page__desc">正确数量：{{result.right_num}}</text>
         </block>
+        <block wx:if="{{checkAnalysis === true}}">
+            <text class="page__desc">正确答案为：{{result.answer}}</text>
+            <text class="page__desc">题目解析：{{result.topic_analysis}}</text>
+            <text class="page__desc">错误数量：{{result.wrong_num}}</text>
+            <text class="page__desc">正确数量：{{result.right_num}}</text>
+        </block>
     </view>
     <button class="page-body-button" type="default" bindtap="submit">提交答案</button>
 
@@ -23,6 +29,8 @@
 
 
     <button class="page-body-button" type="default" bindtap="selectNext">下一题</button>
+
+    <button class="page-body-button" type="default" bindtap="getAnalysis">查看解析</button>
 
     <navigator url="../index/index" hover-class="navigator-hover">
         <button class="page-body-button" type="default">回到首页</button>

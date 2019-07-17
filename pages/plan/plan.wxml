@@ -1,6 +1,6 @@
 <view class="page">
     <view class="page__hd">
-        <text class="page__desc">地区为:{{region}}</text>
+        <text class="page__desc">地区为:</text>
         <view class="section section_gap">
             <radio-group class="radio-group" bindchange="radioRegionChange">
                 <label class="radio" wx:for-items="{{regionItems}}">
@@ -8,7 +8,7 @@
                 </label>
             </radio-group>
         </view>
-        <text class="page__desc">考试类型为：{{examType}}</text>
+        <text class="page__desc">考试类型为：</text>
         <view class="section section_gap">
             <radio-group class="radio-group" bindchange="radioExamTypeChange">
                 <label class="radio" wx:for-items="{{examItems}}">
@@ -17,6 +17,9 @@
             </radio-group>
         </view>
         <text class="page__desc">每日需刷题数为：{{dailyNeedNum}}</text>
-
+        <toast hidden="{{toastHidden}}" bindchange="toastChange">
+            提交计划成功
+        </toast>
+        <button class="page-body-button" type="default" bindtap="submitPlan">提交计划</button>
     </view>
 </view>
