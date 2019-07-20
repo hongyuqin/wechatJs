@@ -18,3 +18,12 @@
   flex-direction: column;
   background-color: #fbf9fe;
 }
+.flex-item{
+    width: 100px;
+    height: 100px;
+}
+.flex-wrp{
+    height: 100px;
+    display:flex;
+    background-color: #FFFFFF;
+}

@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/plan/plan",
     "pages/topic/topic",
+    "pages/wrongTopic/wrongTopic",
     "pages/logs/logs"
   ],
   "window": {

@@ -8,16 +8,6 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
 
-     <!--
-     "rank": 0,
-             "total": 1,
-             "left_days": 0,
-             "today_practice_num": 0,
-             "daily_need_num": 100,
-             "has_learn_num": 0,
-             "wrong_num": 0,
-             "total_topic_num":1000
-     -->
     <view class="page__bd">
         <view class="btn-area">
             <text class="page__desc">排名为:{{home.rank}}/{{home.total}}</text>

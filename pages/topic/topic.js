@@ -9,19 +9,25 @@ Page({
     data: {
         topicId: 0,
         topic: {},
+        photoUrl:'',
         items: [
-            {name: 'A', value: '', checked: 'true'},
+            {name: 'A', value: ''},
             {name: 'B', value: ''},
             {name: 'C', value: ''},
             {name: 'D', value: ''},
         ],
-        answer: 'A',
+        answer: '',
+        hasPhoto:false,
         hasSubmit: false,
         checkAnalysis:false,
         result: {},
         operate: '',
         index: 0,
-        isBegin:true
+        isBegin:true,
+        activeIndex: 0
+    },
+    swiperChange(e){
+        console.log("swiperChange")
     },
 
     /**
@@ -43,11 +49,16 @@ Page({
             success(resp) {
                 if (resp.data.code == 200) {
                     var topic = resp.data.data
+                    console.log("photo is :"+topic.photo)
                     changed['topicId'] = topic.topic_id
                     changed['items[0].value'] = topic.option_a
                     changed['items[1].value'] = topic.option_b
                     changed['items[2].value'] = topic.option_c
                     changed['items[3].value'] = topic.option_d
+                    if(topic.photo != ''){
+                        changed['hasPhoto'] = true
+                        changed['photoUrl'] = topic.photo
+                    }
                     that.setData({
                         topic: topic,
                         index: topic.index
@@ -57,46 +68,26 @@ Page({
             }
         })
     },
-    submit: function () {
-        var that = this
-        var changed = {}
-        wx.request({
-            url: app.globalData.serverUrl+'/answer',
-            data: {
-                accessToken: app.globalData.accessToken,
-                topic_id: this.data.topicId,
-                my_answer: this.data.answer,
-            },
-            success(resp) {
-                console.log("submit resp :" + resp)
-                var result = resp.data.data
-                if (resp.data.code == 200) {
-                    that.setData({
-                        result: result,
-                        hasSubmit: true
-                    })
-                }
-            }
-        })
-    },
     getAnalysis: function () {
         var that = this
-        wx.request({
-            url: app.globalData.serverUrl+'/getAnalysis',
-            data: {
-                accessToken: app.globalData.accessToken,
-                topic_id: this.data.topicId
-            },
-            success(resp) {
-                var result = resp.data.data
-                if (resp.data.code == 200) {
-                    that.setData({
-                        result: result,
-                        checkAnalysis:true
-                    })
+        if(!this.data.hasSubmit) {
+            wx.request({
+                url: app.globalData.serverUrl + '/getAnalysis',
+                data: {
+                    accessToken: app.globalData.accessToken,
+                    topic_id: this.data.topicId
+                },
+                success(resp) {
+                    var result = resp.data.data
+                    if (resp.data.code == 200) {
+                        that.setData({
+                            result: result,
+                            checkAnalysis: true
+                        })
+                    }
                 }
-            }
-        })
+            })
+        }
     },
     selectLast: function () {
         console.log("selectLast")
@@ -162,6 +153,24 @@ Page({
     },
     radioChange: function (e) {
         console.log('radio发生change事件，携带value值为：', e.detail.value)
-        this.setData({answer: e.detail.value})
+        var that = this
+        wx.request({
+            url: app.globalData.serverUrl+'/answer',
+            data: {
+                accessToken: app.globalData.accessToken,
+                topic_id: this.data.topicId,
+                my_answer: e.detail.value,
+            },
+            success(resp) {
+                console.log("submit resp :" + resp)
+                var result = resp.data.data
+                if (resp.data.code == 200) {
+                    that.setData({
+                        result: result,
+                        hasSubmit: true
+                    })
+                }
+            }
+        })
     }
 })

@@ -1,13 +1,22 @@
 <view class="page">
-    <view class="page__hd">
-        <text class="page__desc">{{topic.topic_name}}</text>
-        <view class="section section_gap">
-            <radio-group class="radio-group" bindchange="radioChange">
-                <label class="radio" wx:for-items="{{items}}">
-                    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}.{{item.value}}
-                </label>
-            </radio-group>
-        </view>
+
+    <view class="page-section page-section-spacing swiper">
+        <swiper  bindchange="swiperChange">
+            <swiper-item>
+                <text class="page__desc">{{topic.topic_name}}</text>
+                <block wx:if="{{hasPhoto === true}}">
+                    <image src="{{photoUrl}}" class="image"></image>
+                </block>
+                <view class="section section_gap">
+                    <radio-group class="radio-group" bindchange="radioChange">
+                        <label class="radio" wx:key-items="{{items}}">
+                            <radio value="{{item.name}}" checked="{{item.checked}}"/>
+                            {{item.name}}.{{item.value}}
+                        </label>
+                    </radio-group>
+                </view>
+            </swiper-item>
+        </swiper>
         <block wx:if="{{hasSubmit === true}}">
             <text class="page__desc">是否正确:{{result.right}}</text>
             <text class="page__desc">正确答案为：{{result.answer}}</text>
@@ -22,15 +31,12 @@
             <text class="page__desc">正确数量：{{result.right_num}}</text>
         </block>
     </view>
-    <button class="page-body-button" type="default" bindtap="submit">提交答案</button>
 
+    <button class="page-body-button" type="default" bindtap="getAnalysis">查看解析</button>
 
     <button class="page-body-button" type="default" bindtap="selectLast">上一题</button>
 
-
     <button class="page-body-button" type="default" bindtap="selectNext">下一题</button>
-
-    <button class="page-body-button" type="default" bindtap="getAnalysis">查看解析</button>
 
     <navigator url="../index/index" hover-class="navigator-hover">
         <button class="page-body-button" type="default">回到首页</button>
